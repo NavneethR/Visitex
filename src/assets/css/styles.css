@@ -1,0 +1,50 @@
+*{
+    margin: 0%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Nav-bar {
+    height:6.5vh;
+    border-radius: 10px;
+    background-color: rgb(87, 83, 83);
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-signup-button-container{
+    width: 15%;
+    display: flex;
+    justify-content: space-evenly ;
+}
+
+.login-container{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+    display: block;
+    width : 30%;
+    height: auto;
+}
+
+.login-page{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: darkgray;
+}
+
+
+.error{
+    color: red;
+}
+
+.verification-code input{
+    width: 5%;
+}
