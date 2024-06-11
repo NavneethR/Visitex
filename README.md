@@ -1,8 +1,34 @@
-# React + Vite
+#Visitor Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Description
+A visitor management system for companies to keep track of visitors of employees.
 
-Currently, two official plugins are available:
+Features
+Collects and stores visitor data.
+Retains data for up to 10 years.
+Notifies employees of visitor arrivals.
+Technologies Used
+MongoDB
+Express.js
+Node.js
+React
+Installation
+Clone the repository.
+Navigate to the project directory.
+Install dependencies using npm install.
+Usage
+Start the backend server using npm run dev.
+Start the React frontend using npm start.
+Access the application via http://localhost:3000.
+Contribution
+Fork the repository.
+Create a new branch.
+Make your changes.
+Submit a pull request.
+License
+This project is licensed under the MIT License.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+
+
