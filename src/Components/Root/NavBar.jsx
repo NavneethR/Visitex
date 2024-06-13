@@ -6,15 +6,15 @@ import "../../assets/css/styles.css"
 
 const NavBar = () => {
 
-    const user = "Navneeth Ramesh";
+    const user = false;
 
     return (
         <div className="Nav-bar">
-            <div><img src={menu}/></div>
-            <div>Visitex</div>
+            <img src={menu} className="menu-icon"/>
+            <h1>Visitex</h1>
             <div className="login-signup-button-container">
-                {(!user) ? <Link to='/root/signup'>Sign Up</Link>:<div>{user}</div>}
-                {(!user) ? <Link to='/root/login'>Login</Link>:null}
+                {(!user) ? <div className="signup"><Link to='/root/signup'>Sign Up</Link></div>:<div>{user}</div>}
+                {(!user) ? <div className="signup"><Link to='/root/login'>Login</Link></div>:null}
             </div>
         </div>
     )

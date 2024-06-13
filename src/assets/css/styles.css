@@ -11,14 +11,17 @@ input::-webkit-inner-spin-button {
 .Nav-bar {
     height:6.5vh;
     border-radius: 10px;
-    background-color: rgb(87, 83, 83);
+    background-color: white;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-left: 6.5px;
 }
 
 .login-signup-button-container{
     width: 15%;
     display: flex;
+    border: black;
     justify-content: space-evenly ;
 }
 
@@ -45,6 +48,19 @@ input::-webkit-inner-spin-button {
     color: red;
 }
 
-.verification-code input{
-    width: 5%;
+.menu-icon{
+    height: 4vh;
+}
+
+.signup{
+    flex: 1 1 auto;
+    text-decoration: bold;
+}
+
+.signup + .signup{
+    border-left: solid 2px Black;
+}
+
+.signup :last-child{
+    padding-left: 15px;
 }
