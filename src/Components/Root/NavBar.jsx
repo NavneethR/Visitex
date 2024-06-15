@@ -1,22 +1,18 @@
 import React from "react";
-import logo from "../../assets/images/icon.png"
 import menu from "../../assets/images/hamburgerMenu.png"
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../../assets/css/styles.css"
 
 const NavBar = () => {
-
-    const user = false;
-
     return (
-        <div className="Nav-bar">
+        <nav className="Nav-bar">
             <img src={menu} className="menu-icon"/>
             <h1>Visitex</h1>
             <div className="login-signup-button-container">
-                {(!user) ? <div className="signup"><Link to='/root/signup'>Sign Up</Link></div>:<div>{user}</div>}
-                {(!user) ? <div className="signup"><Link to='/root/login'>Login</Link></div>:null}
+                <NavLink to='/root/signup'  className="signup">Sign Up</NavLink>
+                <div className="signup"><NavLink to='/root/login'>Login</NavLink></div>
             </div>
-        </div>
+        </nav>
     )
 }
 
