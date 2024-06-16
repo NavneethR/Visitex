@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "../../Components/Root/NavBar"
 
-const OldUser = () => {
+const NewUser = () => {
     return (
         <>
             <Outlet/>
@@ -8,4 +9,4 @@ const OldUser = () => {
     )
 }
 
-export default OldUser;
+export default NewUser;

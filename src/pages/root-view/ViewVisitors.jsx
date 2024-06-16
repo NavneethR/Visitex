@@ -4,7 +4,7 @@ import { Navigate} from "react-router-dom";
 import TableComponent from "../../Components/Root/TableComponent";
 
 const ViewVisitors = () => {
-    const auth = true;
+    const auth = false;
 
     if(!auth){
         <Navigate to='login'/>
