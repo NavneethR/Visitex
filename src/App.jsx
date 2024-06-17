@@ -10,7 +10,7 @@ import ClientLayout from "./pages/client-view/layout/ClientLayout.jsx";
 
 const App = () => {
     return (
-        <div style={{backgroundColor: "darkgray",width:"100%",height:"auto",marginBottom:"0px"}}>
+        <div className="body">
             <Routes>
                 <Route element={<ClientLayout/>}>
                     <Route path='/' element={<NewUser/>}/>

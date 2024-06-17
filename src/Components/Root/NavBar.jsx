@@ -6,7 +6,7 @@ import "../../assets/css/styles.css"
 const NavBar = ({need}) => {
     return (
         <div>
-            <nav className="Nav-bar">
+            <nav className="Nav-bar sticky has-navbar">
                 <img src={menu} className="menu-icon"/>
                 <h1>Visitex</h1>
                 {(need==="false")?<div/>:
