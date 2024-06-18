@@ -3,8 +3,7 @@ import {useState} from "react";
 
 const LoginComponent = () => {
 
-    const [username, setUsername] = useState();
-    const [password,setPassword] = useState();
+    const [user, setUsername] = useState({username:"",password:""});
 
     const handleInput = (event) => {
         if(event.target.name === "user"){
@@ -19,9 +18,9 @@ const LoginComponent = () => {
             <h2><center>Login</center></h2>
             <hr/>
             <p>User:</p>
-            <input name='user' id='user' type="text" value={username || ''} onChange={handleInput } placeholder='Type your username here'/>
+            <input name='user' id='user' type="text" value={user.username || ''} onChange={handleInput } placeholder='Type your username here'/>
             <p>Password:</p>
-            <input name='password' id='password' type='password' value={password || ''} onChange={handleInput} placeholder="Type your password here"/>
+            <input name='password' id='password' type='password' value={user.password || ''} onChange={handleInput} placeholder="Type your password here"/>
             <br/><br/>
             <button>Login</button>
         </div>

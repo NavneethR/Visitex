@@ -17,113 +17,79 @@ const TableComponent = () => {
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
+                    <td>12: 00am</td>
+                    <td>1: 30pm</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Guy 3</td>
+                    <td>Guy 4</td>
+                    <td>example</td>
+                    <td>12: 01am</td>
+                    <td>1: 31pm</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
                     <td>12: 00am</td>
                     <td>1: 30pm</td>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
+                    <td>12: 00am</td>
+                    <td>1: 30pm</td>
+                </tr> <tr>
+                    <td>1</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
                     <td>12: 00am</td>
                     <td>1: 30pm</td>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
+                    <td>12: 00am</td>
+                    <td>1: 30pm</td>
+                </tr> 
+                <tr>
+                    <td>1</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
                     <td>12: 00am</td>
                     <td>1: 30pm</td>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
+                    <td>12: 00am</td>
+                    <td>1: 30pm</td>
+                </tr> <tr>
+                    <td>1</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
                     <td>12: 00am</td>
                     <td>1: 30pm</td>
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
-                    <td>12: 00am</td>
-                    <td>1: 30pm</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>No one</td>
-                    <td>Navneeth Ramesh</td>
-                    <td>lonely</td>
+                    <td>Guy 1</td>
+                    <td>Guy 2</td>
+                    <td>example</td>
                     <td>12: 00am</td>
                     <td>1: 30pm</td>
                 </tr>

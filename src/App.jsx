@@ -7,6 +7,7 @@ import Signup from "./pages/root-view/SignUp.jsx";
 import OldUser from "./pages/client-view/OldUser.jsx";
 import NewUser from "./pages/client-view/NewUser.jsx";
 import ClientLayout from "./pages/client-view/layout/ClientLayout.jsx";
+import WebCamComponent from "./Components/Client/WebCamComponent.jsx";
 
 const App = () => {
     return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route element={<ClientLayout/>}>
                     <Route path='/' element={<NewUser/>}/>
                     <Route path='/old-user' element={<OldUser/>}/>
+                    <Route path="/webcam" element={<WebCamComponent/>}/>
                 </Route>
                 <Route path="/register" element={<NewUser/>}/>
                 <Route path="/root" element={<ViewVisitors/>}/>

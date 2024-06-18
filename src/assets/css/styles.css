@@ -8,8 +8,17 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+a:link { 
+    text-decoration: none; 
+}
+
+input [type="text"]{
+    color:black;
+}
+
 .body{
-    background-color: darkgray;
+    color: #fff;
+    background-color: #222831;
     width:100%;
     height: calc(auto + 100px);
     padding: 1% 0% 2% 0%;
@@ -23,7 +32,7 @@ input::-webkit-inner-spin-button {
     height:6.5vh;
     border-radius: 10px;
     border-bottom: 2px solid black;
-    background-color: white;
+    background-color: #31363F;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,12 +47,13 @@ input::-webkit-inner-spin-button {
 }
 
 .login-container, .signup-container{
-    background-color: white;
+    background-color: #31363F;
     border-radius: 10px;
     box-shadow: 5px 5px black;
     display: block;
     width : 30%;
     height: auto;
+    padding: 10px;
 }
 
 .login-page, .signup-page{
@@ -52,7 +62,7 @@ input::-webkit-inner-spin-button {
     align-items: center;
     width: 100%;
     height: 93.5vh;
-    background-color: darkgray;
+    background-color: #222831;
 }
 
 
@@ -84,13 +94,13 @@ input::-webkit-inner-spin-button {
     margin: calc(6.5vh + 2%) 2% 0% 2%;
     padding: 1%;
     align-items: space-between;
-    background-color: white;
     border-radius: 10px;
-    display: block;
+    display: table;
     width : 94%;
     height: auto;
-    border-collapse: separate;
 }
+
+
 table, thead, tbody{
     width: 100%;
 }
@@ -123,4 +133,29 @@ td {
 
 tbody{
     display: table;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #222831;
+}
+
+tbody tr:nth-child(even){
+    background-color: #31363F;
+}
+
+.webcam-container{
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    padding: 2px;
+    width: 350px;
+}
+
+.webcam{
+    margin:10vh 0.5vh 10vh 30vh;
+    padding: 5px;
+}
+
+.user-input{
+    margin:10vh 30vh 10vh 0.5vh;
 }
