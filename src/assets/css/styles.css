@@ -143,19 +143,86 @@ tbody tr:nth-child(even){
     background-color: #31363F;
 }
 
-.webcam-container{
+.container{
     display: flex;
     background-color: white;
     border-radius: 20px;
-    padding: 2px;
-    width: 350px;
+    width: 380px;
 }
 
-.webcam{
+.webcam-container{
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    width: 380px;
     margin:10vh 0.5vh 10vh 30vh;
-    padding: 5px;
 }
 
 .user-input{
     margin:10vh 30vh 10vh 0.5vh;
+    color: black;
 }
+
+.user-input-form{
+    padding:20px;
+}
+
+.user-input-form textarea{
+    width: 100%;
+}
+
+.user-input-form input[type="text"]{
+    width: 100%;
+}
+
+.camera-off-text{
+    width: 380px;
+    height: 470px;
+    border-radius: 20px;
+}
+
+.register-user-title{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+    font-variant:small-caps;
+}
+
+hr{
+    margin: 10px;
+}
+
+.user-field-title{
+    margin-bottom: 7px;
+    font-size: 19px;
+}
+
+.capture-button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 20px; /* Position the button at the bottom */
+  left: calc(50% + 30px); /* Center horizontally */
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  cursor:grab;
+  align-items: center;
+  justify-content: center;
+}
+
+.capture-toggle-button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 20px; /* Position the button at the bottom */
+    left: calc(50% - 70px); /* Center horizontally */
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    cursor:grab;
+    align-items: center;
+    justify-content: center;
+  }
