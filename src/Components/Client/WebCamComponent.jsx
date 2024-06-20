@@ -29,6 +29,7 @@ const CustomWebcam = () => {
       </div>
       <div className="container user-input" style={{display:"flex",flexDirection:"column"}}>
         <UserInputComponent/>
+        
       </div>
     </div>
   );
