@@ -32,7 +32,6 @@ const SignupComponent = () => {
             {(user.password==user.confirmPassword)?null:<p className="error">*passwords do not match</p>}
             <p>email</p>
             <input name='email' id='email' type='email' value={user.email||''} placeholder="Type you email here" onChange={handleInput}/>
-            <br/><br/>
             <button onClick={printInput}>Signup</button>
         </form>
     )

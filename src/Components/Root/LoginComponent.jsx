@@ -21,7 +21,6 @@ const LoginComponent = () => {
             <input name='user' id='user' type="text" value={user.username || ''} onChange={handleInput } placeholder='Type your username here'/>
             <p>Password:</p>
             <input name='password' id='password' type='password' value={user.password || ''} onChange={handleInput} placeholder="Type your password here"/>
-            <br/><br/>
             <button>Login</button>
         </div>
     )

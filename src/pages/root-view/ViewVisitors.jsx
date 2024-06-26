@@ -1,18 +1,19 @@
-import React from "react";
+import {React, useState} from "react";
 import NavBar from "../../Components/Root/NavBar";
 import { Navigate} from "react-router-dom";
 import TableComponent from "../../Components/Root/TableComponent";
 
 const ViewVisitors = () => {
-    const auth = false;
+    const [auth,setAuth] = useState(true);
+    const [user,setUser] = useState("Navneeth Ramesh")
 
     if(!auth){
-        <Navigate to='login'/>
+        return (<Navigate to='/root/login'/>);
     }
 
     return (
         <div className="main">
-            <NavBar user={auth}/>  
+            <NavBar user={user}/>  
             <TableComponent/> 
         </div>
     )

@@ -1,20 +1,16 @@
 import React from "react";
-import menu from "../../assets/images/hamburgerMenu.png"
-import { NavLink } from "react-router-dom";
-import "../../assets/css/styles.css"
+import "../../assets/css/styles.css";
+import userIcon from "../../assets/icon/user.png"
 
-const NavBar = ({need}) => {
+const NavBar = ({user}) => {
     return (
         <div>
-            <nav className="Nav-bar sticky has-navbar">
-                <img src={menu} className="menu-icon"/>
-                <h1>Visitex</h1>
-                {(need==="false")?<div/>:
-                <div className="login-signup-button-container">
-                    <NavLink to='/root/signup'  className="signup">Sign Up</NavLink>
-                    <div className="signup"><NavLink to='/root/login'>Login</NavLink></div>
+            <nav className="Nav-bar sticky">
+                <h1 className="main-title">Visitex</h1>
+                <div className="user">
+                    <img src={userIcon} style={{width:"auto",height:"100%",borderRadius:"50%"}}/>
+                    <div>{user}</div>
                 </div>
-                }
             </nav>
         </div>
     )

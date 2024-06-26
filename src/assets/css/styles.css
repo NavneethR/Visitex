@@ -1,5 +1,6 @@
 *{
-    margin: 0%;
+  margin: 0%;
+  overflow: hidden;
 }
 
 input::-webkit-outer-spin-button,
@@ -9,199 +10,191 @@ input::-webkit-inner-spin-button {
 }
 
 input [type="text"]{
-    color:black;
+  color:black;
 }
 
 input{
-    line-height: 25px;
-    width: 100%;
+  line-height: 25px;
+  width: 100%;
 }
 
 textarea{
-    line-height: 30px;
-    resize:none;
+  line-height: 30px;
+  resize:none;
 }
 
-.body{
-    color: #fff;
-    background-color: #222831;
-    width:100%;
-    height: calc(auto + 100px);
-    padding: 1% 0% 2% 0%;
-}
-
-.height-100{
-    height: calc(100vh - 6vh);
-}
-
-.Nav-bar {
-    height:6.5vh;
-    border-radius: 10px;
-    border-bottom: 2px solid black;
-    background-color: #31363F;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 6.5px;
-}
-
-.login-signup-button-container{
-    width: 15%;
-    display: flex;
-    border: black;
-    justify-content: space-evenly ;
-}
-
-.login-container, .signup-container{
-    background-color: #31363F;
-    border-radius: 10px;
-    box-shadow: 5px 5px black;
-    display: block;
-    width : 30%;
-    height: auto;
-    padding: 20px;
-}
-
-.login-page, .signup-page{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 93.5vh;
-    background-color: #222831;
-}
-
-
-.error{
-    color: red;
-}
-
-.menu-icon{
-    height: 4vh;
-}
-
-.signup{
-    flex: 1;
-    text-align: center;
-    border-right: 1px solid #fff;Employee Name:
-
-  }
-
-.signup + .signup{
-    border-left: solid 2px Black;
-}
-
-.sticky{
-    position: fixed;
-    width: 100%;
-    top: 0;
-}
-
-.table-component{
-    margin: calc(6.5vh + 2%) 2% 0% 2%;
-    padding: 1%;
-    align-items: space-between;
-    border-radius: 10px;
-    display: table;
-    width : 94%;
-    height: auto;
-}
-
-
-table, thead, tbody{
-    width: 100%;
+table, th, td{
+  border: 2px solid black;
+  color: black;
+  border-collapse: collapse;
 }
 
 table{
-    border: 2px solid black;
-    border-collapse: collapse;
-    overflow: auto;
+  width: 100%;
+  overflow-y: auto;
+} 
+
+table.scrolldown {
+  width: 100%;
+  border: 2px solid black;
 }
 
-tr{
-    display: flex;
-    justify-content: center;
-}
-
-th{
-    background-color: darkgray;
-    width: 16.7%;
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
-}
-
-td {
-    width: 16.7%;
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
-}
-
-tbody{
-    display: table;
-}
-
-tbody tr:nth-child(odd){
-    background-color: #222831;
+td{
+  text-align: center;
+  height:40px;
 }
 
 tbody tr:nth-child(even){
-    background-color: #31363F;
+  background-color: gray;
+}
+
+tbody {
+  border-top: 2px solid black;
+  overflow-y: auto;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+.body{
+  overflow-y: scroll;
+  color: #fff;
+  background-color: #222831;
+  width:100%;
+  height: 100vh;
+  padding: 1% 0% 2% 0%;
+}
+
+.Nav-bar {
+  height:5vh;
+  border-radius: 10px;
+  border-bottom: 2px solid black;
+  background-color: #31363F;
+  display: flex;
+  padding: 15px;
+  width:calc(100vw - 30px);
+}
+
+.login-signup-button-container{
+  width: 15%;
+  display: flex;
+  border: black;
+  justify-content: space-evenly ;
+}
+
+.login-container, .signup-container{
+  background-color: #31363F;
+  border-radius: 10px;
+  box-shadow: 5px 5px black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 300px;
+  height: auto;
+  padding: 20px;
+}
+
+.login-page, .signup-page{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 93.5vh;
+  background-color: #222831;
+}
+
+.error{
+  color: red;
+}
+
+.main-title{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.user{
+  display: flex;
+  width: 100%;
+  max-width: 30%;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: white;
+}
+
+.signup{
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #fff;
+}
+
+.signup + .signup{
+  border-left: solid 2px Black;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
+}
+
+.table-component{
+  background-color: #fff;
+  margin: 10.5vh 2% 2% 2%;
+  padding: 1% 1% 1% 1%;
+  align-items: space-between;
+  border-radius: 10px;
+  display: table;
+  width : 94%;
+  height: 50px;
 }
 
 .container{
-    display: flex;
-    background-color: white;
-    border-radius: 20px;
-    width: 380px;
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  width: 380px;
 }
 
 .webcam-container{
-    position: relative;
-    background-color: white;
-    border-radius: 20px;
-    width: 380px;
-    margin:10vh 0.5vh 10vh 30vh;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  width: 380px;
+  margin:10vh 0.5vh 10vh 30vh;
 }
 
 .user-input{
-    margin:10vh 30vh 10vh 0;
-    color: black;
+  margin:10vh 30vh 10vh 0;
+  color: black;
 }
 
 .user-input-form{
-    position: relative;
-    padding:20px;
+  position: relative;
+  padding:20px;
 }
 
 .user-input-form textarea{
-    width: 100%;
+  width: 100%;
 }
 
 .user-input-form input[type="text"]{
-    width: 100%;
-}
-
-.camera-off-text{
-    width: 380px;
-    height: 470px;
-    border-radius: 20px;
+  width: 100%;
 }
 
 .register-user-title{
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 25px;
-    font-weight: 700;
-    font-variant:small-caps;
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 25px;
+  font-weight: 700;
+  font-variant:small-caps;
 }
 
 .user-field-title{
-    margin: 10px 0px 7px 0px;
-    font-size: 19px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 10px 0px 7px 0px;
+  font-size: 19px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .capture-button {
@@ -219,17 +212,17 @@ tbody tr:nth-child(even){
 }
 
 .capture-toggle-button {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    bottom: 20px; /* Position the button at the bottom */
-    left: calc(50% - 70px); /* Center horizontally */
-    background-color: white;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 20px; /* Position the button at the bottom */
+  left: calc(50% - 70px); /* Center horizontally */
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .submit-button{
