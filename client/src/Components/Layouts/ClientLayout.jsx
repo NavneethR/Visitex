@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../NavBar";
 
-const HomeLayout = ({ navbar = true, children }) => {
+const ClientLayout = () => {
   return (
     <>
-      {navbar && <Navbar />}
+      <Navbar client={true} />
       <Outlet />
     </>
   );
 };
 
-export default HomeLayout;
+export default ClientLayout;
