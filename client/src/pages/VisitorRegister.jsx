@@ -1,18 +1,24 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import Webcam from "react-webcam";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import VisitorContext from "../context/VisitorContext";
 
 const VisitorRegister = () => {
-  const [credentials, setCredentials] = useState({
-    email: "test@example.com",
-    password: "test123",
-  });
+  const initial_credential = {
+    visitorName: "",
+    employeeName: "",
+    reason: "",
+    enterTime: "",
+    photo: "",
+  };
+  const [credentials, setCredentials] = useState(initial_credential);
   const [webcamControl, setWebcamControl] = useState(false);
   const [time, setTime] = useState(new Date());
   const [imgSrc, setImgSrc] = useState(null);
   const webcamRef = useRef(null);
+  const { registerUser } = useContext(VisitorContext);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,9 +30,10 @@ const VisitorRegister = () => {
   });
 
   useEffect(() => {
-    const imageLink = imgSrc;
-    if (imageLink != null) console.log(imageLink.length);
-    setImgSrc(null);
+    setImgSrc(imgSrc);
+    setCredentials(() => {
+      return { ...credentials, photo: imgSrc };
+    });
   }, [imgSrc]);
 
   const capture = useCallback(() => {
@@ -44,16 +51,26 @@ const VisitorRegister = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setCredentials({ ...credentials, [name]: value });
+    setCredentials({
+      ...credentials,
+      [name]: value,
+      enterTime: time.toLocaleTimeString(),
+    });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    let y = await registerUser(credentials);
+    if (y == 1) {
+      toast.success("Your response has been recorded!");
+      setImgSrc(null);
+      setCredentials(initial_credential);
+    }
   };
 
   return (
     <div style={{ display: "flex", justifyContent: "center", gap: "3px" }}>
-      <ToastContainer />
+      <ToastContainer autoClose={3000} />
       <div
         className="card border-primary mb-3 mt-5"
         style={{
@@ -66,34 +83,52 @@ const VisitorRegister = () => {
           alignItems: "center",
         }}
       >
-        {webcamControl ? (
-          <Webcam
-            audio={false}
-            mirrored={true}
-            style={{ width: "100%", margin: "10px" }}
-            videoConstraints={{
-              height: 1,
-            }}
-            ref={webcamRef}
-          />
+        {imgSrc == null ? (
+          <>
+            {webcamControl ? (
+              <Webcam
+                audio={false}
+                mirrored={true}
+                style={{ width: "100%", margin: "10px" }}
+                videoConstraints={{
+                  height: 1,
+                }}
+                ref={webcamRef}
+              />
+            ) : (
+              <div>The web cam is turned off</div>
+            )}
+            <button
+              className="btn btn-outline-primary"
+              style={{ position: "absolute", bottom: "10px", right: "25%" }}
+              onClick={capture}
+            >
+              Take photo
+            </button>
+            <button
+              className="btn btn-outline-primary"
+              style={{ position: "absolute", bottom: "10px", left: "10%" }}
+              onClick={() => {
+                setWebcamControl(!webcamControl);
+              }}
+            >
+              Toggle Camera
+            </button>
+          </>
         ) : (
-          <div>The web cam is turned off</div>
+          <>
+            <img src={imgSrc} />
+            <button
+              className="btn btn-outline-primary"
+              onClick={() => {
+                setImgSrc(null);
+              }}
+              style={{ position: "absolute", bottom: "10px" }}
+            >
+              retake
+            </button>
+          </>
         )}
-        <button
-          style={{ position: "absolute", bottom: "10px", right: "25%" }}
-          onClick={capture}
-        >
-          Take photo
-        </button>
-        <button
-          style={{ position: "absolute", bottom: "10px", left: "10%" }}
-          onClick={() => {
-            setWebcamControl(!webcamControl);
-            setImgSrc(null);
-          }}
-        >
-          Turn {webcamControl ? "OFF" : "ON"} Camera
-        </button>
       </div>
       <div
         className="card border-primary mb-3 mt-5"
@@ -111,8 +146,8 @@ const VisitorRegister = () => {
               className="form-control"
               id="nameInput"
               placeholder="Jhon Doe"
-              value={credentials.name}
               onChange={handleInputChange}
+              value={credentials.visitorName}
             />
           </div>
           <div id="employeeName">
@@ -122,9 +157,9 @@ const VisitorRegister = () => {
               name="employeeName"
               className="form-control"
               id="emailInput"
-              placeholder="jhondoe@example.com"
-              value={credentials.email}
+              placeholder="Jane Doe"
               onChange={handleInputChange}
+              value={credentials.employeeName}
             />
           </div>
           <div>
@@ -132,9 +167,13 @@ const VisitorRegister = () => {
             <textarea
               className="form-control"
               id="exampleTextarea"
+              name="reason"
               rows="3"
               style={{ resize: "none" }}
-            ></textarea>
+              placeholder="Who do you want to visit?"
+              onChange={handleInputChange}
+              value={credentials.reason}
+            />
           </div>
           <div>
             <div className=" col-form-label">Current Time: </div>

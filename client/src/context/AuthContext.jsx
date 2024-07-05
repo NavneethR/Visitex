@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   //check if user is logged in to prevent accidental lose of data when logged in
   const isLoggedIn = async () => {
     try {
-      const res = await fetch("http://localhost:8000/root/api", {
+      const res = await fetch("http://localhost:8000/api", {
         method: "GET",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
@@ -45,13 +45,9 @@ export const AuthContextProvider = ({ children }) => {
       const a = await res.json();
       const errorPresent = a.error;
       const user = a.user;
-      const values = Object.values(userdata);
 
       //check if all field are present
-      if (values.includes("")) {
-        toast.error("Please enter all fields");
-        return;
-      } else if (!errorPresent) {
+      if (!errorPresent) {
         toast.success("User logged in successfully");
         localStorage.setItem("token", a.token);
         setUser(user);
@@ -76,17 +72,8 @@ export const AuthContextProvider = ({ children }) => {
         body: JSON.stringify({ ...userdata }),
       });
       const result = await res.json();
-      const values = Object.values(userdata);
 
-      if (values.includes("")) {
-        toast.error("Please enter all fields");
-        return;
-      } else if (values[2].length < 6) {
-        toast.error("Password must be atleast 6 characters long");
-      } else if (values[2] !== values[3]) {
-        toast.error("Password and confirm password don't match");
-        return;
-      } else if (!result.error) {
+      if (!result.error) {
         toast.success("User signed up successfully");
         navigate("/root/login", { replace: true });
       } else {
