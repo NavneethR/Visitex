@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import HomeLayout from "../Components/Layouts/HomeLayout";
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import RootAuthContext from "../context/RootAuthContext";
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState([]);
@@ -10,7 +9,6 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("hi");
     (async () => {
       try {
         const res = await fetch("http://localhost:8000/api/visitor-list", {
@@ -19,7 +17,6 @@ const Home = () => {
         });
         let Content = await res.json();
         Content = Object.values(Content);
-        console.log(Content);
         setContent(Content);
       } catch (error) {
         console.log(error);
@@ -27,16 +24,22 @@ const Home = () => {
     })();
   }, []);
 
-  if (content.length != 0) {
-    console.log(content.length);
-  }
+  const { root } = useContext(RootAuthContext);
+  useEffect(() => {
+    if (!root) {
+      navigate("/root-auth");
+    }
+  }, []);
 
   return (
     <div className="m-5 ">
       <br />
       <h2>Hello {rootname},</h2>
       <hr />
-      <p>Welcome to visitor management system, where things get simplified </p>
+      <p>
+        Welcome to Visitex, your personal visitor management system, where your
+        work gets organised.
+      </p>
       <br />
       <h2>Visitor's List</h2>
       <hr />
@@ -53,7 +56,7 @@ const Home = () => {
         </thead>
         <tbody className="table-active">
           {content.map((element, index) => (
-            <tr>
+            <tr key={index}>
               <td>{index + 1}</td>
               <td>{element.visitorName}</td>
               <td>{element.employeeName}</td>

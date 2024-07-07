@@ -1,8 +1,9 @@
 import { useEffect, useState, useCallback, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import RootAuthContext from "../context/RootAuthContext";
 import VisitorContext from "../context/VisitorContext";
 
 const VisitorRegister = () => {
@@ -19,6 +20,14 @@ const VisitorRegister = () => {
   const [imgSrc, setImgSrc] = useState(null);
   const webcamRef = useRef(null);
   const { registerUser } = useContext(VisitorContext);
+
+  const { root } = useContext(RootAuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!root) {
+      navigate("/root-auth");
+    }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

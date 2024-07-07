@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
-import AuthContext from "../context/AuthContext";
-import { Link } from "react-router-dom";
 import VisitorContext from "../context/VisitorContext";
+import RootAuthContext from "../context/RootAuthContext";
 
 const VisitorLogout = () => {
   const { logout } = useContext(VisitorContext);
@@ -9,6 +8,14 @@ const VisitorLogout = () => {
     visitorName: "",
     employeeName: "",
   });
+
+  const { root } = useContext(RootAuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!root) {
+      navigate("/root-auth");
+    }
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

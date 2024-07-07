@@ -7,7 +7,6 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,13 +21,13 @@ export const AuthContextProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const result = await res.json();
-      if (!result.error) {
-        setUser(result);
+      if (!result._doc.error) {
+        setUser(result._doc);
       } else {
         console.log(result.error);
       }
-    } catch (error) {
-      console.log("Unexpected Error: " + error.message);
+    } catch (err) {
+      console.log("Unexpected Error: " + err);
     }
   };
 
@@ -45,6 +44,7 @@ export const AuthContextProvider = ({ children }) => {
       const a = await res.json();
       const errorPresent = a.error;
       const user = a.user;
+      console.log(a);
 
       //check if all field are present
       if (!errorPresent) {
@@ -86,7 +86,6 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <div>
-      <ToastContainer autoClose={3000} />
       <AuthContext.Provider value={{ loginUser, signupUser, user, setUser }}>
         {children}
       </AuthContext.Provider>
