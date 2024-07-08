@@ -14,20 +14,28 @@ export const RootAuthContextProvider = ({ children }) => {
 
   //is root logged in
   const checkLogin = async () => {
-    const res = await fetch("http://localhost:8000/root-password/auth", {
-      method: "GET",
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    });
-    const result = await res.json();
-    if (result.error) {
-      toast.error(result.error);
+    try {
+      const res = await fetch("http://localhost:8000/authenticate-root", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      const result = await res.json();
+      if (!result.error) {
+        console.log(result);
+      } else {
+        console.log(error);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   //login-root
   const rootlogin = async (password) => {
     try {
-      const res = await fetch("http://localhost:8000/root-password/auth", {
+      const res = await fetch("http://localhost:8000/root/rootAuth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +45,7 @@ export const RootAuthContextProvider = ({ children }) => {
       const result = await res.json();
       if (!result.error) {
         setRoot(true);
-        //localStorage.setItem("token", result.token);
+        localStorage.setItem("token", result.token);
         navigate("/root/login");
       } else {
         toast.error(result.error);

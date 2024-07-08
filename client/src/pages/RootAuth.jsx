@@ -1,12 +1,10 @@
 import { useContext, useState, useEffect } from "react";
 import OtpInput from "react-otp-input";
 import Navbar from "../Components/NavBar";
-import { useNavigate } from "react-router-dom";
 import RootAuthContext from "../context/RootAuthContext";
 
 const RootAuth = () => {
   const [otp, setOtp] = useState("");
-  const navigate = useNavigate();
   const { rootlogin, checkLogin } = useContext(RootAuthContext);
 
   const handleSubmit = (event) => {
