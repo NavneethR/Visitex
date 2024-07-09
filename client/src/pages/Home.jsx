@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import RootAuthContext from "../context/RootAuthContext";
+
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [content, setContent] = useState([]);
@@ -25,13 +25,12 @@ const Home = () => {
   }, []);
 
   const root = localStorage.getItem("root");
-
   useEffect(() => {
     console.log(root);
     if (!root) {
       navigate("/root-auth");
     }
-  });
+  }, []);
 
   return (
     <div className="m-5 ">

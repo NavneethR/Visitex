@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react";
 import VisitorContext from "../context/VisitorContext";
-import RootAuthContext from "../context/RootAuthContext";
 import { useNavigate } from "react-router-dom";
 
 const VisitorLogout = () => {

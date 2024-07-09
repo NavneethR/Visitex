@@ -1,16 +1,22 @@
 import { useContext, useState, useEffect } from "react";
 import OtpInput from "react-otp-input";
 import Navbar from "../Components/NavBar";
-import RootAuthContext from "../context/RootAuthContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import rootpass from "../../public/config";
 
 const RootAuth = () => {
   const [otp, setOtp] = useState("");
-  const { rootlogin, checkLogin } = useContext(RootAuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    checkLogin();
-    rootlogin(otp);
+    if (otp == rootpass) {
+      localStorage.setItem("root", true);
+      navigate("/root/login", { replace: true });
+    } else {
+      toast.error("Password is not correct!");
+    }
   };
 
   return (

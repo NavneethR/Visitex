@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import RootAuthContext from "../context/RootAuthContext";
 import VisitorContext from "../context/VisitorContext";
 
 const VisitorRegister = () => {
