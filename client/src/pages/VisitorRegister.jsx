@@ -21,7 +21,7 @@ const VisitorRegister = () => {
   const webcamRef = useRef(null);
   const { registerUser } = useContext(VisitorContext);
 
-  const { root } = useContext(RootAuthContext);
+  const root = localStorage.getItem("root");
   const navigate = useNavigate();
   useEffect(() => {
     if (!root) {

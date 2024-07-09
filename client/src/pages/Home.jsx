@@ -24,12 +24,14 @@ const Home = () => {
     })();
   }, []);
 
-  const { root } = useContext(RootAuthContext);
+  const root = localStorage.getItem("root");
+
   useEffect(() => {
+    console.log(root);
     if (!root) {
       navigate("/root-auth");
     }
-  }, []);
+  });
 
   return (
     <div className="m-5 ">

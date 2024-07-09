@@ -12,7 +12,7 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
-  const { root } = useContext(RootAuthContext);
+  const root = localStorage.getItem("root");
   const navigate = useNavigate();
   useEffect(() => {
     if (!root) {

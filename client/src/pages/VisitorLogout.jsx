@@ -10,7 +10,7 @@ const VisitorLogout = () => {
     employeeName: "",
   });
 
-  const { root } = useContext(RootAuthContext);
+  const root = localStorage.getItem("root");
   const navigate = useNavigate();
   useEffect(() => {
     if (!root) {

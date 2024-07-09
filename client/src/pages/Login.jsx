@@ -10,9 +10,11 @@ const Login = () => {
     password: "",
   });
 
-  const { root } = useContext(RootAuthContext);
+  const root = localStorage.getItem("root");
   const navigate = useNavigate();
+
   useEffect(() => {
+    console.log(root);
     if (!root) {
       navigate("/root-auth");
     }

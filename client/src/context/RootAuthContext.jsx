@@ -10,7 +10,7 @@ export const RootAuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     checkLogin();
-  }, [root]);
+  });
 
   //is root logged in
   const checkLogin = async () => {
@@ -22,8 +22,9 @@ export const RootAuthContextProvider = ({ children }) => {
         },
       });
       const result = await res.json();
+
       if (!result.error) {
-        console.log(result);
+        localStorage.setItem("root", true);
       } else {
         console.log(error);
       }
@@ -35,12 +36,12 @@ export const RootAuthContextProvider = ({ children }) => {
   //login-root
   const rootlogin = async (password) => {
     try {
-      const res = await fetch("http://localhost:8000/root/rootAuth", {
+      const res = await fetch("http://localhost:8000/authenticate-root", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ ...password }),
       });
       const result = await res.json();
       if (!result.error) {
