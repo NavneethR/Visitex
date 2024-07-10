@@ -4,6 +4,7 @@ import Webcam from "react-webcam";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import VisitorContext from "../context/VisitorContext";
+import AuthContext from "../context/AuthContext";
 
 const VisitorRegister = () => {
   const initial_credential = {
@@ -12,6 +13,7 @@ const VisitorRegister = () => {
     reason: "",
     enterTime: "",
     photo: "",
+    root: "",
   };
   const [credentials, setCredentials] = useState(initial_credential);
   const [webcamControl, setWebcamControl] = useState(false);
@@ -20,10 +22,12 @@ const VisitorRegister = () => {
   const webcamRef = useRef(null);
   const { registerUser } = useContext(VisitorContext);
 
-  const root = localStorage.getItem("root");
+  const { user } = useContext(AuthContext);
+
+  const rootAuthed = localStorage.getItem("root");
   const navigate = useNavigate();
   useEffect(() => {
-    if (!root) {
+    if (!rootAuthed) {
       navigate("/root-auth");
     }
   }, []);
@@ -68,7 +72,7 @@ const VisitorRegister = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let y = await registerUser(credentials);
+    let y = await registerUser({ ...credentials, root: user.name });
     if (y == 1) {
       toast.success("Your response has been recorded!");
       setImgSrc(null);

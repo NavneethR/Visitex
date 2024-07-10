@@ -16,17 +16,20 @@ const Home = () => {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         let Content = await res.json();
-        Content = Object.values(Content);
+        Content = Object.values(Content).filter((res) => {
+          if (res.root === rootname) {
+            return res;
+          }
+        });
         setContent(Content);
       } catch (error) {
         console.log(error);
       }
     })();
-  }, []);
+  });
 
   const root = localStorage.getItem("root");
   useEffect(() => {
-    console.log(root);
     if (!root) {
       navigate("/root-auth");
     }
