@@ -25,6 +25,7 @@ const VisitorLogout = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     logout(credentials);
+    setCredentials({ visitorName: "", employeeName: "" });
   };
 
   return (

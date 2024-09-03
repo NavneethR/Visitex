@@ -36,7 +36,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="m-5 ">
+    <div className="m-5">
       <br />
       <h2>Hello {rootname},</h2>
       <hr />
@@ -47,32 +47,36 @@ const Home = () => {
       <br />
       <h2>Visitor's List</h2>
       <hr />
-      <table className="table table-hover">
-        <thead className="table-dark">
-          <tr>
-            <th scope="col">S.no</th>
-            <th scope="col">Visitor Name</th>
-            <th scope="col">Employee Name</th>
-            <th scope="col">Reason</th>
-            <th scope="col">Enter time</th>
-            <th scope="col">Photo</th>
-          </tr>
-        </thead>
-        <tbody className="table-active">
-          {content.map((element, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{element.visitorName}</td>
-              <td>{element.employeeName}</td>
-              <td>{element.reason}</td>
-              <td>{element.enterTime}</td>
-              <td>
-                <img src={element.photo} style={{ height: "150px" }} />
-              </td>
+      {content.length >= 1 ? (
+        <table className="table table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th scope="col">S.no</th>
+              <th scope="col">Visitor Name</th>
+              <th scope="col">Employee Name</th>
+              <th scope="col">Reason</th>
+              <th scope="col">Enter time</th>
+              <th scope="col">Photo</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="table-active">
+            {content.map((element, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{element.visitorName}</td>
+                <td>{element.employeeName}</td>
+                <td>{element.reason}</td>
+                <td>{element.enterTime}</td>
+                <td>
+                  <img src={element.photo} style={{ height: "150px" }} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>You currently don't have any visitors</p>
+      )}
     </div>
   );
 };

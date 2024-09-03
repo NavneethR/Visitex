@@ -48,6 +48,7 @@ const Navbar = ({ client = false, root_auth = false }) => {
                         localStorage.clear();
                         toast.success("User logged out!");
                         navigate("/root/login", { replace: true });
+                        localStorage.setItem("root", true);
                       }}
                     >
                       Logout

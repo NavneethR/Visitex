@@ -1,2 +1,2 @@
-const rootpass = 3333;
+const rootpass = 1574;
 export default rootpass;

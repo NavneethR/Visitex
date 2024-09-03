@@ -23,6 +23,7 @@ function App() {
             <Route path="/root/*" element={<div>Error 404! Not Found</div>} />
           </Route>
           <Route path="/" element={<ClientLayout />}>
+            <Route path="" element={<div>Error 404! Not Found</div>} />
             <Route path="register-user" element={<VisitorRegister />} />
             <Route path="logout-user" element={<VisitorLogout />} />
             <Route path="*" element={<div>Error 404! Not Found</div>} />
